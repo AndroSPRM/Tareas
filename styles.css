@@ -1,0 +1,103 @@
+.page {
+	font-size: 14px;
+	width: 700px;
+	margin: 0 auto;
+	background-color: #DCDCDC;
+	border-radius: 10px;
+}
+
+
+
+body {
+font-family: Helvetica, Arial, sans-serif;
+background-color: #D3D3D3;
+}
+
+table {
+width: 100%;
+border: 1px solid #999;
+text-align: left;
+border-collapse: collapse;
+margin: 0 0 1em 0;
+caption-side: top;
+}
+
+th{
+border-bottom: 1px solid #999;
+width: 33%;
+}
+caption {
+padding: 0.3em;
+font-size:1.2EM;
+font-weight: bold;
+font-style: italic;
+background: #5F9EA0;
+}
+
+.synopsis {
+	font-size: 1.2EM;
+	color: #5F9EA0;
+	font-style: italic;
+	text-align: center;
+
+}
+.Tablecont{
+	font-size: 0.8EM;
+  	color:#708090;
+}
+
+ul{
+	color: #708090;
+
+}
+
+.HeadTable{
+	font-size: 0.8EM;
+	font-weight: bold;
+  	color: ;
+}
+
+#NAME{
+	display:block;
+	text-align: center;
+	color :#2F4F4F;
+}
+
+#PERFIL{
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	width:	400px;
+	border-radius: 8px;
+	border:	2px solid #FFF;
+	
+	
+}
+h3,h1,h2,h4 table{
+	color:	#2F4F4F;
+}
+
+
+
+.button:link,               
+.button:visited {            
+  display: block;           
+  text-decoration: none;    
+  color: #2F4F4F;
+  background-color: #5F9EA0;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #5D6063;
+  border-radius: 5px;
+  
+  width: 200px;
+  margin: 20px auto;
+}
+.button:hover,
+.button:visited:hover {
+  color: #5F9EA0;
+  background-color:  #2F4F4F; /* Light blue */
+}
+
+
