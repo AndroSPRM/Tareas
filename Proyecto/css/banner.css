@@ -1,0 +1,95 @@
+#banner{
+    margin-top: 50px;/*para que inicie desde abajo del header*/ 
+}
+
+#banner img{
+/*    width: auto;
+    height: 100%;
+*/
+    width:auto;
+    height:inherit;
+}
+#banner{
+      overflow:hidden;
+}
+
+#banner .contenedor{
+    width: 100%;
+    height: auto;
+    padding: 7px;
+    background: rgba(196,19,19,0.8);
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+    
+}
+
+#banner h2{
+    font-size: 20px;
+    
+}
+#banner a{
+    display: block;
+    width: 100px;
+    color: #fff;
+    text-decoration: none;
+    padding: 7px;
+    margin-top: 10px;
+    border: 3px solid #fff;
+    
+}
+
+#banner a:hover{
+    background: rgba(130,15,15,0.5);
+}
+
+@media(max-width:579px){
+    #banner p{
+        font-size: 14px;
+    }
+    
+    #banner a{
+        font-size: 12px;
+    }
+    
+    #banner img{
+
+    }
+}
+
+@media(min-width:580px){
+    
+    #banner h2{
+        font-size: 22px;
+    }
+    
+    #banner a{
+        margin-top: 25px;
+    }
+    
+}
+
+@media(min-width:768px){/*para resolucionees de tablets o pantallas mayores a */
+
+    #banner h2{
+        font-size: 28px;
+    }
+    
+
+    
+}
+
+@media(min-width:1024px){ /*Para cuando es un escritorio*/
+
+    #banner .contenedor{
+        width: 1000px;
+    }
+    #banner img{
+        width:100%;
+        height:inherit;
+    }
+    
+}
+
