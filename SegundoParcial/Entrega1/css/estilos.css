@@ -1,0 +1,123 @@
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*para cuando se de un padin o un border sea mismo modelo de caja*/
+    
+}
+
+
+body{
+    font-family: 'Playfair Display', serif;
+    
+}
+
+header{
+    width: 100%; /*para que se expanda a todo el ancho*/
+    height:50px;  /*la altura*/
+    /*background: #FFF ;*/
+    background: rgba(255,255,255,0.9);
+    color: #71093a;
+    
+    position: fixed; /*para posicionar el menu*/
+    top: 0;/*para que inicie desde la pocion 0,0*/
+    left: 0;
+    z-index: 100; /*Para el header sea quien tapa a los demas elementos*/
+}
+
+#bienvenidos{
+    margin:80px auto;
+}
+
+
+
+.contenedor{
+    width: 98%; /*para alinear y dar un poco de tolerancia al cambiar el tamaño del explorador*/
+    margin: auto;
+}
+
+#noticias {
+    width: 750px;
+
+}
+
+
+#publi{
+    width: 250px;
+    
+}
+
+h1{
+    float: left;
+}
+
+header .contenedor{ /*para ajustar el contenido despues del header*/
+    display: table;
+}
+
+section{
+    width: 100%;
+    margin-bottom: 25px; /*para empujar el contenido de abajo*/
+}
+
+#bienvenidos{
+    
+    text-align: justify;
+}
+
+
+footer .contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.copy{
+    font-size: 20px;
+    
+}
+
+.sociales{
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    
+}
+
+.sociales a{
+    color: #005eb0;
+    text-decoration: none;
+    border-radius: 20%;
+    border: 3px solid #fff;
+}
+
+
+
+.sociales a:hover{
+    background: rgba(73,79,85,0.5);
+}
+
+
+
+.sociales p{
+    color:b00009;
+    text-decoration: none;
+    border: 3px solid #fff;
+    font-size: 20px;
+    
+}
+
+.sociales p:hover{
+    background: rgba(73,79,85,0.5);
+}
+
+
+@media(min-width: 1024px){
+    .contenedor{
+        width: 1000px;
+        
+    }
+}

@@ -1,0 +1,107 @@
+#blog h3, h4{
+    text-align: left;
+    
+}
+
+article{
+    align-content: center;
+    text-align: justify;
+}
+
+#blog .contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /*para cuando un elemento no quepa se baje*/
+}
+
+#blog article{
+    margin: 15px; /*separacion de las imagenes entre si*/
+    
+}
+
+#blog article a{
+    color:black;
+    text-decoration: none;
+}
+
+#blog img{
+    margin:auto auto;
+    /*max-width: 100%;*/
+    max-width: 480px;
+    width: 217px;
+    /**margin-top: 0 ;**/
+}
+
+@media(max-width:400px){
+
+
+    
+    #blog #noticias{
+        width: 100%;
+        margin: 0 50%;
+    }
+    
+    #blog h4{
+        text-align: justify;
+    }
+
+}
+
+@media(min-width:401px){
+    
+    #noticias{
+        margin: 0 50%;
+    }
+    
+    #blog article{
+        width: 100%
+        margin: 0px 50%;
+        
+    }
+    
+    #blog img{
+        width:240px;
+        margin:0 auto;
+        
+    }
+    
+    #blog h4{
+        text-align: justify;
+    }
+
+}
+
+@media(min-width:800px){
+    
+    #noticias{
+        width: 75%;
+    }
+    #publi{
+        width: 25%;
+    }
+    
+    #blog article{
+        width: 100%
+        margin: 0px 50%;
+        
+    }
+    
+    #blog img{
+        width:480px;
+        margin:0 auto;
+        
+    }
+    #publi{
+        align-content:center;
+    }
+    #publi img{
+        
+        width: 100%;
+        margin: auto;
+    }
+    
+    #blog h4{
+        text-align: justify;
+    }
+
+}

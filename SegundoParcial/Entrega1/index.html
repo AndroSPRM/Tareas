@@ -1,0 +1,151 @@
+ <!DOCTYPE= html >
+<html lang='es'>
+ <!--NOTA-->
+    <head>
+        <Title>DIARIO UTM</Title>
+        <meta charset='UTF-8'/> 
+        <meta name="viewport" content="width-device-width, user-scalable = no, initial-scale=1, maximun-scale=1, minimun-scale=1">
+        <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" href="css/menu.css">
+        <link rel="stylesheet" href="css/blog.css">
+        <link rel="stylesheet" href="css/info-auto.css">
+        <link rel='stylesheet' href='css/fontello.css'> 
+
+        
+        
+        
+	</head>
+
+	<body>
+		<header>
+            <div class="contenedor">
+                <img src="images/LOGO.png">
+                <input type="checkbox" id="menu-bar">
+                <label class="icon-menu" for="menu-bar"></label>
+                <nav class="menu">
+                    <a href="#">Inicio</a>
+                    <a href="#">Mes anterior</a>
+                    <a href="#">¿ Qué es UTM?</a>
+                    <a href="#">Contacto</a>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+
+            
+            <section id="bienvenidos" class="contenedor" >
+                <h3>Destacadas de: </h3>
+                <p>
+                <script  type="text/javascript">
+                    var d=new Date();
+                    var dia=new Array(7);
+                    var año=new Array(12);
+                    
+                    dia[0]="Domingo";
+                    dia[1]="Lunes";
+                    dia[2]="Martes";
+                    dia[3]="Miercoles";
+                    dia[4]="Jueves";
+                    dia[5]="Viernes";
+                    dia[6]="Sabado";
+                    
+                    año[0]="Enero";
+                    año[1]="Febrero";
+                    año[2]="Marzo";
+                    año[3]="Abril";
+                    año[4]="Mayo";
+                    año[5]="Junio";
+                    año[6]="Julio";
+                    año[7]="Agosto";
+                    año[8]="Septiembre";
+                    año[9]="Octubre";
+                    año[10]="Noviembre";
+                    año[11]="Diciembre";
+                    document.write( año[d.getMonth()]);
+                    document.write("<br/><h3>Hoy es: </h3>" + dia[d.getDay()]);
+                </script>
+            <p></p>
+            </section>
+            
+            <section  id="blog" class="contenedor">
+
+                
+            
+                <div  class="contenedor">
+                    <div  id="noticias">
+                        <article >
+                            <a href="http://e-oaxaca.com/nota/2018-11-07/educacion/profesora-investigadora-de-la-universidad-tecnologica-de-la-mixteca">
+                                <img src="images/not1.jpg" width="240px">
+                                
+                                <h4 >Profesora Investigadora de la Universidad Tecnológica de la Mixteca, resulta ganadora del “Apoyo Sofía Kovalevskaia 2018"</h4>
+                            </a>
+                        </article>
+
+                        <article >
+                            <a  href="http://e-oaxaca.com/nota/2018-09-26/educacion/utm-realizara-el-tercer-congreso-internacional-de-modelacion-matematica">
+                                <img src="images/not2.jpg" width="240px">
+                                <h4 >UTM realizará el tercer Congreso Internacional de Modelación Matemática</h4>
+                            </a>
+                        </article>
+                        <article>  
+                            <a href="http://www.utm.mx/noticias/competencia_usabilidad_vancouver.html">
+                                <img src="images/not3.jpg" width="240px">
+                                <h4 >UTM gana competencia en Usabilidad y pasa a la Mundial en Vancouver</h4>
+                            </a>
+                        </article>
+                        <article>
+                            <a href="http://www.utm.mx/concent_noticias/Reconocimiento_HP_UTM.pdf">
+                                <img src="images/not4.png" width="240px">
+                                 <h4 >UTM recibe reconocimiento de HP</h4>
+                            </a>
+                        </article>
+                    </div>
+                    <div  id="publi">
+                       <img src="images/PUBLI.png">
+                    </div>
+                    
+                </div>
+            
+            </section>
+            
+            <section id="info">
+                <h3>Tu vehiculo es tu medio de transporte,cuidalo para que no te falle.</h3>
+                <div class="contenedor">
+                    <div class="info-auto">
+                        <img src="images/pu1.jpg" width="240px">
+                        <h4>Mantenimiento preventivo</h4>
+                    </div>
+                    <div class="info-auto">
+                        <img src="images/pu2.jpg" width="240px">
+                        <h4>Mantenimiento correctivo</h4>
+                    </div>
+                    <div class="info-auto">
+                        <img src="images/pu3.jpeg" width="240px">
+                        <h4>Usa el lubricante correcto y<br/> alarga la vida de tu auto</h4>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+        <footer>
+            <div class="contenedor">
+                <p class="copy">Refaccionaria Garcia &copy;2018</p>
+                
+                <div class="sociales" >
+                    <a class="icon-facebook" href="https://www.facebook.com/people/Refaccionaria-Garcia/100005685165746"></a>
+                    <p class="icon-gmail">
+                    Mercadorfg@gmail.com
+                    </p>
+                </div>
+                
+            </div>
+        </footer>
+	</body>
+</html>
+
+
+<!--
+http://www.webestilo.com/html/cap5a.phtml
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
+-->
