@@ -1,0 +1,46 @@
+*{
+    padding: 0; /*Posicionando al inicio de la pantalla*/
+    margin: 0;
+    font-family: 'Unlock', cursive;
+}
+
+h1{
+    font-size: 100px;
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 50px;
+    color: darkslategray;
+}
+
+.g{
+    width: 100%;
+}
+
+p,strong{
+    font-family: 'Sedgwick Ave', cursive;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 20px;
+    color: darkslategray;
+}
+
+
+
+body{
+    
+    background-color: #e0e4cd;
+    
+}
+
+.controles{
+    padding: 15px;
+    width: 500px;
+    height: auto;
+    margin: 0 auto;
+}
+
+canvas{
+    background-color: #525661;
+    display: block;
+    margin: 0 auto;
+}

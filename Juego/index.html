@@ -1,0 +1,351 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            Break-Out by Andres García
+        </title>
+        
+        <link rel="stylesheet" href="stylos/part1.css">
+        <!--<link href="https://fonts.googleapis.com/css?family=Unlock" rel="stylesheet">-->
+        <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave|Unlock" rel="stylesheet">
+    </head>
+    <body>
+        <h1>
+        Breakout
+        </h1>
+        <p>
+            Bueno, 
+            <strong>
+                ¿Podras lograrlo?
+            </strong>
+        </p>
+        <canvas id="myCanvas" width="480px" height="320px" ></canvas>
+        <audio id="music"  src="media/2.mp3.mp3" autoplay></audio>
+        <audio id="muerte" src="media/1.mp3.mp3" autoplay></audio>
+
+        
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var scor_aux = 0;
+            var ctx = canvas.getContext("2d");
+            var ballRadius = 10;
+            var x = canvas.width/2;
+            var y = canvas.height-20;
+            var dx = 6;
+            var dy = 3;
+            var paddleHeight = 10;
+            var paddleWidth = 75;
+            var paddleX = (canvas.width-paddleWidth)/2;
+            var rightPressed = false;
+            var leftPressed = false;
+            var brickRowCount = 5;
+            var brickColumnCount = 3;
+            var brickWidth = 75;
+            var brickHeight = 20;
+            var brickPadding = 10;
+            var brickOffsetTop = 30;
+            var brickOffsetLeft = 30;
+            var score = 0;
+            var lives = 3;
+            var Niveles = 1;
+            var limite = 0;
+            var restalimite = 0;
+//#####################################
+            function playMusic(){
+                music.play();
+            }
+            function playMusic2(){
+              muerte.play();  
+            }
+            
+
+
+            
+var bricks = [];
+
+function actualiza2(){
+	brickRowCount = 6;
+	brickColumnCount = 6;
+	brickWidth = 62.5;
+	brickHeight= 20;
+	dx = 6.5;
+	dy = 3;
+    y = canvas.height-20;
+    x =  canvas.width/2;
+    paddleX = (canvas.width-paddleWidth)/2;
+    scor_aux = scor_aux + score;
+	score = 0;
+}
+
+function actualiza1(){
+	brickRowCount = 5;
+	brickColumnCount = 3;
+	brickWidth = 75;
+	brickHeight= 20;
+    y = canvas.height-20;
+    x =  canvas.width/2;
+	dx = 3.5;
+	dy = 3.5;
+    paddleX = (canvas.width-paddleWidth)/2;
+    //scor_aux = scor_aux + score;
+	score = 0;
+}
+
+function activa(){
+    limite = brickColumnCount * brickRowCount;
+	for(c=0; c<brickColumnCount; c++) {
+		bricks[c] = [];
+		for(r=0; r<brickRowCount; r++) {
+            if ( r == 2 || r== 3 ||  (c % 3 == 0)){
+            bricks[c][r] = { x: 0, y: 0, status: 1 };
+		    }else {
+                //alert(limite);
+                limite = limite -1;
+                bricks[c][r] = {x:0 , y:0 , status: 0}
+            }
+        }
+	}
+}   
+
+function activa2(){
+    limite = brickColumnCount * brickRowCount;
+	for(c=0; c<brickColumnCount; c++) {
+		bricks[c] = [];
+		for(r=0; r<brickRowCount; r++) {
+            if ( r == 2 ||  (c % 3 == 0)){
+            bricks[c][r] = { x: 0, y: 0, status: 1 };
+		    }else {
+                //alert(limite);
+                limite = limite -1;
+                bricks[c][r] = {x:0 , y:0 , status: 0}
+            }
+        }
+	}
+}            
+
+function activa3(){
+    limite = brickColumnCount * brickRowCount;
+	for(c=0; c<brickColumnCount; c++) {
+		bricks[c] = [];
+		for(r=0; r<brickRowCount; r++) {
+            if (r==1 || r== 3 || r==2 || r==4 || c%3 == 1){
+            bricks[c][r] = { x: 0, y: 0, status: 1 };
+		    }else {
+                //alert(limite);
+                limite = limite -1;
+                bricks[c][r] = {x:0 , y:0 , status: 0}
+            }
+        }
+	}
+}              
+            
+            
+//activa();        
+activa2();
+           
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
+
+function keyDownHandler(e) {
+    if(e.keyCode == 39) {
+        rightPressed = true;
+    }
+    else if(e.keyCode == 37) {
+        leftPressed = true;
+    }
+}
+function keyUpHandler(e) {
+    if(e.keyCode == 39) {
+        rightPressed = false;
+    }
+    else if(e.keyCode == 37) {
+        leftPressed = false;
+    }
+}
+function mouseMoveHandler(e) {
+    var relativeX = e.clientX - canvas.offsetLeft;
+    if(relativeX > 0 && relativeX < canvas.width) {
+        paddleX = relativeX - paddleWidth/2;
+    }
+}
+function collisionDetection() {
+    for(c=0; c<brickColumnCount; c++) {
+        for(r=0; r<brickRowCount; r++) {
+            var b = bricks[c][r];
+            if(b.status == 1) {
+                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                    playMusic();            
+                    dy = -dy;
+                    b.status = 0;
+                    score++;
+                    scor_aux = scor_aux + 1;
+                    
+                    if(score == limite) {
+                        
+                        //alert("YOU WIN, CONGRATS!");
+                        Niveles = Niveles +1;
+                        
+						if (Niveles == 2){
+                        actualiza2();
+                        dx = dx + 1;
+						activa();
+						}else{
+                            if(Niveles == 3){
+                                actualiza2();
+                                dy++;
+                                activa3();
+                            }
+                            
+                        }
+						
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+    ctx.fillStyle = "#4ecc1f";
+    ctx.fill();
+    ctx.closePath();
+}
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = "#317f13";
+    ctx.fill();
+    ctx.closePath();
+}
+function drawBricks() {
+    for(c=0; c<brickColumnCount; c++) {
+        for(r=0; r<brickRowCount; r++) {
+            if(bricks[c][r].status == 1) {
+                var brickX = (r*(brickWidth+brickPadding))+brickOffsetLeft;
+                var brickY = (c*(brickHeight+brickPadding))+brickOffsetTop;
+                bricks[c][r].x = brickX;
+                bricks[c][r].y = brickY;
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                ctx.fillStyle = "#5c7f4f";
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+}
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#4ecc1f";
+     
+    ctx.fillText("Score: "+ scor_aux , 8, 20);
+}
+function drawLives() {
+    ctx.font = "16px Arial"; 
+    ctx.fillStyle ="#4ecc1f";
+    ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+}
+
+function Victoria() {
+
+    ctx.font = "80px Unlock ";
+    ctx.fillStyle = "#d4ec8d";
+    ctx.fillText("G A N A S T E",6, canvas.height/2);
+
+    
+ }            
+            
+function Nivel() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle ="#4ecc1f";
+    
+    ctx.fillText("Nivel: "+ Niveles,canvas.width-280, 20);
+  
+}
+
+            
+function draw() {
+	
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBricks();
+    drawBall();
+    drawPaddle();
+    drawScore();
+    drawLives();
+    Nivel();
+    if(Niveles == 4){
+        x = canvas.width/2;
+        y = canvas.height-20;
+        Victoria();
+        
+    }
+    collisionDetection();
+    
+    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+        dx = -dx;
+    }
+    if(y + dy < ballRadius) {
+        dy = -dy;
+    }
+    else if(y + dy > canvas.height-ballRadius) {
+        if(x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy;
+        }
+        else {
+            lives--;
+            if(!lives) {//Reestart
+                                
+                //playMusic2();
+                alert("Perdiste, pulsa espacio");
+                document.location.reload();
+            }
+            else {
+                
+                    x = canvas.width/2;
+                    y = canvas.height-30;
+
+                    paddleX = (canvas.width-paddleWidth)/2;
+                
+            }
+        }
+    }
+    
+    if(rightPressed && paddleX < canvas.width-paddleWidth) {
+        paddleX += 7;
+    }
+    else if(leftPressed && paddleX > 0) {
+        paddleX -= 7;
+    }
+    
+    x += dx;
+    y += dy;
+    requestAnimationFrame(draw);
+}
+
+draw();
+
+
+
+        </script>
+        <div class="g">
+            <div class="controles">
+            <p>
+                <strong>
+                    Controles:
+                </strong>
+                <br/>
+                Con el raton puedes mover la barra, pero tambien puedes hacerlo con las flechas del teclado.
+                <br/>
+                Para comenzar nuesvamente despues de ganar solo recarga.
+            </p>
+                
+            </div>
+        </div>
+    </body>
+</html>
