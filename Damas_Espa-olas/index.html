@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es" xml:lang="es">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title> Damas Españolas</title>
+        <h1>Damas Españolas</h1>
+        <p class="resumen" ></p>
+
+
+    </head>
+    <body>
+        <main class="gamearea">
+            <div class="panel">
+                <div id="Ren1">
+                    <div id="n" class="blanco"></div>
+                    <!--<div id="n" class="blanco"><div class="bolR"></div></div>-->
+                    <div id="1" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="2" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="3" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="4" class="negro" ></div>
+                </div>
+                <div id="Ren2">
+                    <div id="1" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="2" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="3" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="4" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                </div>
+                <div id="Ren3">
+                    <div id="n" class="blanco"></div>
+                    <div id="1" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="2" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="3" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="4" class="negro" ></div>
+                </div>
+                <div id="Ren4">
+                    <div id="1" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="2" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="3" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="4" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                </div>
+                <div id="Ren5">
+                    <div id="n" class="blanco"></div>
+                    <div id="1" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="2" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="3" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="4" class="negro" ></div>
+                </div>
+                <div id="Ren6">
+                    <div id="1" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="2" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="3" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="4" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                </div>
+                <div id="Ren7">
+                    <div id="n" class="blanco"></div>
+                    <div id="1" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="2" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="3" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="4" class="negro" ></div>
+                </div>
+                <div id="Ren8">
+                    <div id="1" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="2" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="3" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                    <div id="4" class="negro" ></div>
+                    <div id="n" class="blanco"></div>
+                </div>
+            </div>
+        </main>
+        <script type="text/javascript">
+            /*
+            *#################################
+            *           S C R I P T
+            *#################################
+            *Desde un inicio comenzará el panel vacio, *ejecutandose este script es cuando *apareceran las fichas.
+            */
+            /*
+            *INICIALIZACION Y DECLARACION DE VARIBLES
+            */
+            var inicio  = true,
+                cont  = 1,
+                cont3 = 0,
+                cont2 = 1;
+            var R1 = [1,1,1,1],
+                R2 = [1,1,1,1],
+                R3 = [1,1,1,1],
+                R4 = [0,0,0,0],
+                R5 = [0,0,0,0],
+                R6 = [1,1,1,1],
+                R7 = [1,1,1,1],
+                R8 = [1,1,1,1];
+
+
+            /*
+            *Declaración de funciones
+            **/
+            function Dibuja(){
+               //Dibuja a las fichas, se usa para un inicio
+                    //Dibuja del renglon 1 al 3
+                    while(cont <= 3){
+                        var pos = "Ren" + cont;
+                        while(cont2 < 64 && cont3 != 4){
+                               var nuevo = document.createElement("div");
+                               nuevo.setAttribute("class", "bolR");
+                               nuevo.setAttribute("onclick", "alert('hola')");
+                               nuevo.setAttribute("name", cont2);
+                               //alert(pos);
+                               var p = document.getElementById(pos).getElementsByClassName("negro");
+                               //alert(p[cont3].getAttribute("class"));
+                               //alert(nuevo.getAttribute("name"));
+                               p[cont3].appendChild(nuevo);
+                               cont2++; //contador de numero de fichas
+                               cont3++; //contador de posicion de los elemenrtos obtenidos
+                           }
+                           cont3 = 0;
+                       
+                       cont++;  //contador de posicionamiento de Renglon
+                   }
+                   //Dibujo del renglon 6 al 8
+                   cont = 6;
+                   while(cont <= 8){
+                       var pos = "Ren" + cont;
+                           while(cont2 < 64 && cont3 != 4){
+                               var nuevo = document.createElement("div");
+                               nuevo.setAttribute("class", "bolB");
+                               nuevo.setAttribute("name", cont2);
+                               //alert(pos);
+                               var p = document.getElementById(pos).getElementsByClassName("negro");
+                               //alert(p[cont3].getAttribute("class"));
+                               //alert(nuevo.getAttribute("name"));
+                               p[cont3].appendChild(nuevo);
+                               cont2++; //contador de numero de fichas
+                               cont3++; //contador de posicion de los elemenrtos obtenidos
+                           }
+                    cont3 = 0;
+                    cont++;  //contador de posicionamiento de Renglon
+                   }
+            }
+            /*Secuencia y Desarrollo
+            */
+            Dibuja();
+                
+        </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+h1{
+    text-align: center;
+    color: darkslategray;
+    padding-top: 35px;
+    margin-bottom: 50px;
+}
+
+.gamearea{
+    width: 640px;
+    height: 640px;
+    background-color: aqua;
+    margin: 0px auto;
+}
+
+
+.blanco{
+    display: flex;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+}
+
+.negro{
+    display: flex;
+    width: 80px;
+    height: 80px;
+    background-color: black;
+}
+
+#Ren1, #Ren2, #Ren3, #Ren4, #Ren5, #Ren6, #Ren7, #Ren8 {
+    display: flex;
+    height: 80px;
+    width: 640px;
+    background-color: chartreuse;
+}
+
+.bolR{
+    display: flex;
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    background-color: red;
+}
+.bolB{
+     display: flex;
+     height: 80px;
+     width: 80px;
+     border-radius: 100%;
+     background-color: blue;
+ }
